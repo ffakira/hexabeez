@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Project BeEz</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="/css/style.css">
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	</head>
+
+	<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project BeEz</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Inventory</a></li>
+        <li><a href="/admin/orders">Orders <span class="badge">3</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome back, Akira F. <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Pending orders <span class="badge">3</span></a></li>
+            <li><a href="#">Delivered orders <span class="badge">0</span></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Logout</a></li>
+            <li><a href="#">Change password</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="pull-right btn btn-success timeframe-btn">Daily Inventory</div>
+				<div class="pull-right btn btn-success timeframe-btn">Weekly Inventory</div>
+				<div class="pull-right btn btn-success timeframe-btn">Quarterly Inventory</div>
+				<div class="pull-right btn btn-success timeframe-btn">Yearly Inventory</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Products</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<canvas class="dashboard-pie-graph" id="myChart"></canvas>
+			</div>
+
+			<div class="col-md-8">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Last Ordered</th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr style="background:rgba(246, 0, 0, 0.4);">
+							<td>Product 1 <span class="badge">low stock</span></td>
+							<td class="text-center">8</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			  Graph
+			</button></td>
+						</tr>
+						<tr style="background:rgba(255, 140, 0, 0.4);">
+							<td>Product 2</td>
+							<td class="text-center">10</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr style="background:rgba(255, 238, 0, 0.4);">
+							<td>Product 3 <span class="badge">low stock</span></td>
+							<td class="text-center">5</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr style="background:rgba(77, 233, 76, 0.4);">
+							<td>Product 4 <span class="badge">low stock</span></td>
+							<td class="text-center">2</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr style="background:rgba(38, 150, 38, 0.4);">
+							<td>Product 5</td>
+							<td class="text-center">20</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr style="background:rgba(55, 131, 255, 0.4);">
+							<td>Product 6</td>
+							<td class="text-center">30</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr style="background:rgba(72, 21, 170, 0.4);">
+							<td>Product 7</td>
+							<td class="text-center">45</td>
+							<td>Nov 19, 2019 (2d ago)</td>
+							<td><div class="btn btn-primary">Graph</div></td>
+						</tr>
+						<tr>
+							<td colspan=4><strong>Last updated:</strong> Nov 17, 2019 (3d ago) by Akiraf F.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<!-- Button trigger modal -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Product 1</h4>
+			      </div>
+			      <div class="modal-body">
+			        <canvas id="myChart1"></canvas>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var ctx1 = document.getElementById('myChart1').getContext('2d');
+		var chart1 = new Chart(ctx1, {
+	    	// The type of chart we want to create
+		    type: 'bar',
+
+		    // The data for our dataset
+		    data: {
+		        labels: ['Nov 13, 2019', 'Nov 14, 2019', 'Nov 15, 2019', 'Nov 16, 2019', 'Nov 17, 2019', 'Nov 18, 2019', 'Nov 19, 2019'],
+		        datasets: [{
+		            backgroundColor: 'rgba(246, 0, 0, 0.4)',
+		            borderColor: 'rgba(0, 0, 0, 0.3)',
+		            data: [7, 3, 13, 9, 17, 12, 8]
+		        }]
+		    },
+
+		    // Configuration options go here
+		    options: {
+		    	legend: {
+		    		display: false
+		    	}
+		    }
+		});
+
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var chart = new Chart(ctx, {
+    	// The type of chart we want to create
+	    type: 'pie',
+
+	    // The data for our dataset
+	    data: {
+	        labels: ['Product 1', 'Product 2', 'Product 3', 'Product 4', 'Product 5', 'Product 6', 'Product 7'],
+	        datasets: [{
+	            label: 'My First dataset',
+	            backgroundColor: [
+	            	'rgba(246, 0, 0, 0.4)', 
+	            	'rgba(255, 140, 0, 0.4)',
+	            	'rgba(255, 238, 0, 0.4)',
+	            	'rgba(77, 233, 76, 0.4)',
+	            	'rgba(38, 150, 38, 0.4)',
+	            	'rgba(55, 131, 255, 0.4)',
+	            	'rgba(72, 21, 170, 0.4)',
+	            ],
+	            borderColor: 'rgba(0, 0, 0, 0.3)',
+	            data: [8, 10, 5, 2, 20, 30, 45]
+	        }]
+	    },
+
+	    // Configuration options go here
+	    options: {
+	    	legend: {
+	    		display: false
+	    	}
+	    }
+		});
+	</script>
+	</body>
+</html>

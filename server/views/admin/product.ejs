@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project BeEz</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project BeEz</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Welcome back, Akira F.</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="container">
+		<h1>List of Products</h1>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Last Ordered</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Product 1</td>
+					<td>7</td>
+					<td>Nov 19, 2019 (3d ago)</td>
+					<td>Storage 1</td>
+				</tr>
+				<tr>
+					<td>Product 2</td>
+					<td>17</td>
+					<td>Nov 14, 2019 (7d ago)</td>
+					<td>Storage 1</td>
+				</tr>
+				<tr>
+					<td>Product 3</td>
+					<td>11</td>
+					<td>Nov 15, 2019 (6d ago)</td>
+					<td>Storage 2</td>
+				</tr>
+			</tbody>
+		</table>
+		<canvas class="chart" id="myChart"></canvas>
+		<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+			    type: 'bar',
+
+			    // The data for our dataset
+			    data: {
+			        labels: ['Nov 11', 'Nov 12', 'Nov 13', 'Nov 14', 'Nov 15', 'Nov 16', 'Nov 17'],
+			        datasets: [{
+			            label: 'Nov 11 to Nov 17, 2019',
+			            backgroundColor: 'rgb(255, 99, 132)',
+			            borderColor: 'rgb(255, 99, 132)',
+			            data: [22, 19, 17, 18, 33, 33, 31]
+			        }]
+			    },
+
+			    // Configuration options go here
+			    options: {}
+			});
+		</script>
+	</div>
+</body>
+</html>

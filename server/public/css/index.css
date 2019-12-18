@@ -1,0 +1,17 @@
+.form-control {
+	border-radius: 0;
+	border: none;
+}
+
+input.form-control {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border-bottom: 1px solid grey;
+	box-shadow: none;
+}
+
+input.form-control:focus {
+	border-bottom: 1px solid black;
+	box-shadow: none;
+}
