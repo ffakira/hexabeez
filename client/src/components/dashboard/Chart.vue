@@ -1,5 +1,5 @@
 <script>
-import { Pie } from 'vue-chartjs';
+import { Pie } from "vue-chartjs";
 import { mapState } from 'vuex';
 
 export default {
